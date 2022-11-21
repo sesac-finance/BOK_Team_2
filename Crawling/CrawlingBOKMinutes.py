@@ -104,8 +104,9 @@ def text_to_csv(csv_file_name):
     KOB_Minutes_List = pd.DataFrame(KOB_Minutes)
     KOB_Minutes_List.to_csv(save_directory + csv_file_name)
     print(f'{csv_file_name} save Done!')
+
     # test = pd.read_csv('KOB_Minutes.csv')
-    # print(test)
+
 
 # download_BOK_minutes()
 # text_to_csv('KOB_Minutes.csv')
