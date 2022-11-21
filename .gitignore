@@ -132,6 +132,7 @@ share/python-wheels/
 *.egg
 MANIFEST
 Data/
+*.csv
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
