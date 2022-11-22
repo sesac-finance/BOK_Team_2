@@ -14,7 +14,8 @@ NEWSPIDER_MODULE = 'BOK_project.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'BOK_project (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
+
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -93,5 +94,5 @@ TWISTED_REACTOR = 'twisted.internet.asyncioreactor.AsyncioSelectorReactor'
 # DOWNLOADER_CLIENT_TLS_METHOD = 'TLSv1.2'
 DOWNLOADER_CLIENTCONTEXTFACTORY = 'BOK_project.context.ScrapyClientContextFactory'
 
-# DOWNLOAD_DELAY = 0.1    # 250ms 기다림, 기본값은 안기다림
-# CONCURRENT_REQUESTS = 1  # 기본값은 16
+DOWNLOAD_DELAY = 0.05    # 250ms 기다림, 기본값은 안기다림
+CONCURRENT_REQUESTS = 1  # 기본값은 16
