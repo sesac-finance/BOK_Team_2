@@ -3,8 +3,8 @@ import csv
 import re
 
 
-# 2022 새싹 2팀에서 뉴스기사 크롤링 csv 포맷은 num, data, text 이렇게 3 컬럼으로 정한다.
-# num은 일련번호, data 포맷은 1999.01.01, text 는 한글/영어/숫자/기호가 섞여있는 뉴스기사 본문임
+# 2022 새싹 2팀에서 뉴스기사 크롤링 csv 포맷은 num, date, text 이렇게 3 컬럼으로 정한다.
+# num은 일련번호, date 포맷은 1999.01.01, text 는 한글/영어/숫자/기호가 섞여있는 뉴스기사 본문임
 
 maxInt = sys.maxsize
 
