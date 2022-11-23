@@ -63,7 +63,9 @@ def preprocessing(content: str):
     return score
 
 
-df_all_data = text_from_csv().sort_values(by='date', ascending=True)
+# df_all_data = text_from_csv().sort_values(by='date', ascending=True)
 
 # purpose : True(테스트 목적) / False(전체 데이타셋으로 csv파일 생성), default value = False
-create_total_dataset_csv(df_all_data, purpose=True)
+# create_total_dataset_csv(df_all_data, purpose=False)
+print(pd.read_csv('./Data/MDLs/sentiment_results.csv'))
+
