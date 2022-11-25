@@ -13,6 +13,7 @@ from bs4 import BeautifulSoup
 
 link_list = []
 
+
 for i in range(73, 128) :
     URL = 'https://finance.naver.com/research/debenture_list.naver?&page='+str((i))
     res = requests.get(URL)
@@ -52,6 +53,7 @@ df.to_csv("link_list_73~127.csv", index = False)
 # 오직 파일 저장명을 위한.....
 
 file_name = []
+date_list=[] # csv로 저장할 때 넣을 날짜 미리 뽑아버림
 
 for i in range(73, 128) :
     URL = 'https://finance.naver.com/research/debenture_list.naver?&page='+str((i))
@@ -76,6 +78,7 @@ for i in range(73, 128) :
                         
                     temp = [date, name, title]
                     file_name.append(temp)
+                    date_list.append(date)
         
                 except:
                     if temp in file_name:
@@ -94,12 +97,13 @@ for i in range(73, 128) :
                         
                     temp = [date, name, title]
                     file_name.append(temp)
+                    date_list.append(date)
 
                 except:
                     if temp in file_name:
                         pass
 
-file_name
+# file_name # file_name 확인
 
 
 

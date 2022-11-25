@@ -89,3 +89,68 @@ import pandas as pd
 df = pd.DataFrame(text, columns=['text'])
 df.index.name = 'title'
 df.to_csv("text_73~127.csv", index = True)
+
+
+
+
+
+# csv에 넣을 날짜
+
+import requests
+from bs4 import BeautifulSoup
+date_list=[] 
+
+for i in range(73, 128) :
+    URL = 'https://finance.naver.com/research/debenture_list.naver?&page='+str((i))
+    res = requests.get(URL)
+    soup = BeautifulSoup(res.text, 'html.parser')
+
+    information = soup.select('table.type_1')
+
+    for info in information:
+
+        if i <= 126:
+            for a in range(2, 47):
+                try:
+                    date = info.select('tr')[a].select('td')[3].text.strip()
+                    date_list.append(date)
+        
+                except:
+                    pass
+
+        else:
+            for a in range(2, 31): # 127page -> 2010년도 자료까지만 가져옴
+                try:  
+                    date = info.select('tr')[a].select('td')[3].text.strip()
+                    date_list.append(date)
+
+                except:
+                    pass
+
+# date_list
+
+
+
+
+
+# date_list 역순으로 정리
+a = reversed(date_list)
+
+date_list_ = []
+
+for date in a:
+    date_list_.append(date)
+
+date_list_
+
+import pandas as pd
+
+df = pd.read_csv("text_73~127.csv", sep=",")
+
+df_date = pd.DataFrame(date_list_, columns=['date'])
+
+df['title'] = df_date
+
+df.rename(columns={'title':'date'}, inplace=True)
+
+df.to_csv("text_73~127_final.csv", index = True)
